@@ -1,59 +1,72 @@
-# MiniMenuApp
+# Mini Menu App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.22.
+Test task for the **Frontend Developer (Angular)** position.
 
-## Development server
+## 📌 Description
 
-To start a local development server, run:
+This is a small Angular 19+ application consisting of two pages:
 
-```bash
-ng serve
+1. **Home page**
+   - Welcome message
+   - Link to the second page
+
+2. **Menu page**
+   - Sidebar with section types
+   - List of menu items displayed as checkboxes
+   - Header displaying:
+     - Current selected section
+     - Number of selected items
+     - Total value of selected items
+
+All menu data is static (JSON-based). No backend is used.
+
+---
+
+## 🚀 Tech Stack
+
+- Angular 19+
+- TypeScript
+- HTML
+- CSS
+- Angular Router
+- Standalone Components
+
+---
+
+## 🏗 Project Structure
+
+```
+src/
+ ├── main.ts
+ ├── index.html
+ ├── styles.css
+ └── app/
+     ├── app.component.ts
+     ├── app.routes.ts
+     └── pages/
+         ├── home.component.ts
+         ├── menu.component.ts
+         ├── menu.component.html
+         └── menu.component.css
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🧠 Features
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Routing between two pages
+- Dynamic checkbox selection
+- Real-time calculation of:
+  - Selected items count
+  - Total value
+- Reset of selection when switching sections
+- State handled locally inside the Menu page (as required)
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📎 Notes
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- All data is static.
+- No backend required.
+- Design is intentionally minimal, based on the provided layout.
+- Built using modern Angular standalone architecture.
