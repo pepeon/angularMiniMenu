@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface MenuItem {
-  id: number;
-  name: string;
-  value: number;
-}
+import { MenuItem } from '../models/menu-item.model';
+import { MENU_ITEMS } from '../data/menu-data';
 
 @Component({
   selector: 'app-menu',
@@ -18,14 +14,13 @@ export class MenuComponent {
   sections: string[] = ['Тип 1', 'Тип 2'];
   currentSection = 'Тип 1';
 
-  items: MenuItem[] = [
-    { id: 1, name: 'Item 1', value: 20 },
-    { id: 2, name: 'Item 2', value: 30 },
-    { id: 3, name: 'Item 3', value: 40 },
-    { id: 4, name: 'Item 4', value: 50 },
-  ];
+  allItems: MenuItem[] = MENU_ITEMS;
 
   selectedItems: MenuItem[] = [];
+
+  get items(): MenuItem[] {
+    return this.allItems.filter((item) => item.type === this.currentSection);
+  }
 
   changeSection(section: string) {
     this.currentSection = section;
@@ -40,6 +35,10 @@ export class MenuComponent {
     } else {
       this.selectedItems = this.selectedItems.filter((i) => i.id !== item.id);
     }
+  }
+
+  isSelected(item: MenuItem): boolean {
+    return this.selectedItems.some((i) => i.id === item.id);
   }
 
   get selectedCount(): number {

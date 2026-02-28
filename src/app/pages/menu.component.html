@@ -22,7 +22,11 @@
     <div class="items">
       <div class="item" *ngFor="let item of items; trackBy: trackById">
         <label>
-          <input type="checkbox" (change)="toggleItem(item, $event)" />
+          <input
+            type="checkbox"
+            [checked]="isSelected(item)"
+            (change)="toggleItem(item, $event)"
+          />
           <div class="item-text">
             <div>{{ item.name }}</div>
             <div class="value">Value: {{ item.value }}</div>
