@@ -1,0 +1,34 @@
+<div class="layout">
+  <div class="header">
+    <div>Раздел: {{ currentSection }}</div>
+    <div class="summary">
+      <span>Выбрано пунктов: {{ selectedCount }}</span>
+      <span>Общее значение: {{ totalValue }}</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="sidebar">
+      <div
+        class="section"
+        *ngFor="let section of sections"
+        [class.active]="section === currentSection"
+        (click)="changeSection(section)"
+      >
+        {{ section }}
+      </div>
+    </div>
+
+    <div class="items">
+      <div class="item" *ngFor="let item of items; trackBy: trackById">
+        <label>
+          <input type="checkbox" (change)="toggleItem(item, $event)" />
+          <div class="item-text">
+            <div>{{ item.name }}</div>
+            <div class="value">Value: {{ item.value }}</div>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
